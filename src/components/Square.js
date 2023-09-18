@@ -1,6 +1,6 @@
 import React from "react"
 
-const Square = ({board}) => {
+const Square = ({board, handleClick}) => {
   // console.log("props", props.board) //output: 
   //when using props as the parameter requires dot notation to obtain a specific key
   //destruture a specific property
@@ -10,10 +10,14 @@ const Square = ({board}) => {
   return (
     <>
       <div className="grid">
-        {board.map((value, index) => {
+        {board.map((square, index) => {
           return (
-            <div className="square" key={index}>
-              {value}
+            <div 
+              className="square" 
+              key={index}
+              onClick={() => handleClick(index)}
+            >
+              {square}
              </div>
         )
       })}

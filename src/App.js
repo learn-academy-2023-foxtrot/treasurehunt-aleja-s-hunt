@@ -14,11 +14,23 @@ const App = () => {
     "?",
     "?"
   ])
-
+ 
   const handleClick = (selectedIndex) => {
-    //return something
-    board[selectedIndex]= "🌳"
-    setBoard([...board])
+    let treasureIndex = Math.floor(Math.random() * board.length)
+    let bombIndex= Math.floor(Math.random() * board.length)
+    if (treasureIndex === bombIndex) {
+      board[selectedIndex]= "⛈️"
+      setBoard([...board])
+    } else if (treasureIndex === selectedIndex) {
+      board[selectedIndex]= "🌞"
+      setBoard([...board])
+    } else if (bombIndex === selectedIndex) {
+      board[selectedIndex]= "⛈️"
+      setBoard([...board])
+    } else {
+    board[selectedIndex]= "🏖️"
+    setBoard([...board]) 
+    }
   }
 
   return (
